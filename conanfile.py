@@ -27,13 +27,21 @@ class DotNameCppRecipe(ConanFile):
     def configure(self):
         self.options["*"].shared = False # this replaced shared flag from SolutionController.py and works
         self.options["sdl"].iconv = False # iconv not supported by mingw-w64
-        
+
+        # freedesktop.org Migration Status Tracker
+        # https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.23.0/downloads/wayland-1.23.0.tar.xz
+        # I wondered why I didn't like Conan and some Linux stuff was migrating and not available.
+
+        # Add version override
+        # self.requires("wayland/1.23.0", override=True)   
+
     def requirements(self):
         self.requires("fmt/[~11.1]") # required by cpm package
         # self.requires("zlib/[~1.3]")
         # self.requires("nlohmann_json/[~3.11]")
         # self.requires("yaml-cpp/0.8.0")
-        self.requires("sdl/2.30.9")
+        
+        self.requires("sdl/2.32.2")
         self.requires("glfw/3.4")
         self.requires("glew/2.2.0")
         self.requires("imgui/1.91.5")

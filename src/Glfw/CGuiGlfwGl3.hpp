@@ -1,8 +1,8 @@
 #ifndef CGUIGLFWGL3_H
 #define CGUIGLFWGL3_H
 
-#include <thread>
 #include <string>
+#include <thread>
 
 class CGuiGlfwGl3 {
 public:

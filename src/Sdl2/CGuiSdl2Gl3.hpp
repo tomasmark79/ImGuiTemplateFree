@@ -1,8 +1,8 @@
 #ifndef CGUISDL2GL3_H
 #define CGUISDL2GL3_H
 
-#include <thread>
 #include <string>
+#include <thread>
 
 class CGuiSdl2Gl3 {
 public:
