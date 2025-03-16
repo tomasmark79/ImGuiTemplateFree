@@ -2,6 +2,7 @@
 #define CGUISDL2GL3_H
 
 #include <thread>
+#include <string>
 
 class CGuiSdl2Gl3 {
 public:
