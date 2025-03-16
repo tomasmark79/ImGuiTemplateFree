@@ -5,7 +5,7 @@
 
 class CGuiSdl2Gl3 {
 public:
-  CGuiSdl2Gl3() {};
+  CGuiSdl2Gl3(const std::string &assetsPath) : m_assetsPath(assetsPath) {};
   ~CGuiSdl2Gl3() {};
 
   void Run();
@@ -14,6 +14,7 @@ public:
 
 private:
   std::thread m_thread;
+  std::string m_assetsPath;
 };
 
 #endif
