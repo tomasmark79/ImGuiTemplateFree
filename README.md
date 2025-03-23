@@ -1,10 +1,5 @@
 # ImGuiTemplateFree
 
-[![Ubuntu](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/ubuntu.yml)
-[![MacOS](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/macos.yml/badge.svg)](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/macos.yml)
-[![Windows](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/windows.yml/badge.svg)](https://github.com/tomasmark79/ImGuiTemplateFree/actions/workflows/windows.yml)  
-
-
 ### Use GLFW backend
 ```bash
 #define GLFW_ELSE_SDL2
