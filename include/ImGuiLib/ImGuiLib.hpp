@@ -1,26 +1,35 @@
-#ifndef __IMGUILIB_H__
-#define __IMGUILIB_H__
-
 // MIT License
 // Copyright (c) 2024-2025 Tomáš Mark
 
+#ifndef __IMGUILIB_HPP
+#define __IMGUILIB_HPP
+
+#include <ImGuiLib/version.h>
+#include <filesystem>
 #include <string>
+
 // Public API
 
-namespace library {
+namespace dotname {
 
-class ImGuiLib {
-public:
-  ImGuiLib(const std::string &assetsPath);
-  ~ImGuiLib();
+  class ImGuiLib {
 
-  // alternatively, you can use a getter function
-  const std::string getAssetsPath() const { return m_assetsPath; }
+    const std::string libName_ = std::string ("ImGuiLib v.") + IMGUILIB_VERSION;
+    std::filesystem::path assetsPath_;
 
-private:
-  std::string m_assetsPath;
-};
+  public:
+    ImGuiLib ();
+    ImGuiLib (const std::filesystem::path& assetsPath);
+    ~ImGuiLib ();
 
-} // namespace library
+    const std::filesystem::path getAssetsPath () const {
+      return assetsPath_;
+    }
+    void setAssetsPath (const std::filesystem::path& assetsPath) {
+      assetsPath_ = assetsPath;
+    }
+  };
 
-#endif // __IMGUILIB_H__
+} // namespace dotname
+
+#endif // __IMGUILIB_HPP
