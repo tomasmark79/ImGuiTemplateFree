@@ -41,7 +41,7 @@ class DotNameCppRecipe(ConanFile):
         # self.requires("nlohmann_json/[~3.11]")
         # self.requires("yaml-cpp/0.8.0")
         
-        self.requires("sdl/2.32.2")
+        self.requires("sdl/[~2.32]")
         self.requires("glfw/3.4")
         self.requires("glew/2.2.0")
         self.requires("imgui/1.91.5")

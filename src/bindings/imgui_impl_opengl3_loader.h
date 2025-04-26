@@ -1,30 +1,24 @@
 //-----------------------------------------------------------------------------
 // About imgui_impl_opengl3_loader.h:
 //
-// We embed our own OpenGL loader to not require user to provide their own or to
-// have to use ours, which proved to be endless problems for users. Our loader
-// is custom-generated, based on gl3w but automatically filtered to only include
-// enums/functions that we use in our imgui_impl_opengl3.cpp source file in
-// order to be small.
+// We embed our own OpenGL loader to not require user to provide their own or to have to use ours,
+// which proved to be endless problems for users.
+// Our loader is custom-generated, based on gl3w but automatically filtered to only include
+// enums/functions that we use in our imgui_impl_opengl3.cpp source file in order to be small.
 //
-// YOU SHOULD NOT NEED TO INCLUDE/USE THIS DIRECTLY. THIS IS USED BY
-// imgui_impl_opengl3.cpp ONLY. THE REST OF YOUR APP SHOULD USE A DIFFERENT GL
-// LOADER: ANY GL LOADER OF YOUR CHOICE.
+// YOU SHOULD NOT NEED TO INCLUDE/USE THIS DIRECTLY. THIS IS USED BY imgui_impl_opengl3.cpp ONLY.
+// THE REST OF YOUR APP SHOULD USE A DIFFERENT GL LOADER: ANY GL LOADER OF YOUR CHOICE.
 //
-// IF YOU GET BUILD ERRORS IN THIS FILE (commonly macro redefinitions or
-// function redefinitions): IT LIKELY MEANS THAT YOU ARE BUILDING
-// 'imgui_impl_opengl3.cpp' OR INCLUDING 'imgui_impl_opengl3_loader.h' IN THE
-// SAME COMPILATION UNIT AS ONE OF YOUR FILE WHICH IS USING A THIRD-PARTY OPENGL
-// LOADER. (e.g. COULD HAPPEN IF YOU ARE DOING A UNITY/JUMBO BUILD, OR INCLUDING
-// .CPP FILES FROM OTHERS) YOU SHOULD NOT BUILD BOTH IN THE SAME COMPILATION
-// UNIT. BUT IF YOU REALLY WANT TO, you can '#define
-// IMGUI_IMPL_OPENGL_LOADER_CUSTOM' and imgui_impl_opengl3.cpp WILL NOT BE USING
-// OUR LOADER, AND INSTEAD EXPECT ANOTHER/YOUR LOADER TO BE AVAILABLE IN THE
-// COMPILATION UNIT.
+// IF YOU GET BUILD ERRORS IN THIS FILE (commonly macro redefinitions or function redefinitions):
+// IT LIKELY MEANS THAT YOU ARE BUILDING 'imgui_impl_opengl3.cpp' OR INCLUDING 'imgui_impl_opengl3_loader.h'
+// IN THE SAME COMPILATION UNIT AS ONE OF YOUR FILE WHICH IS USING A THIRD-PARTY OPENGL LOADER.
+// (e.g. COULD HAPPEN IF YOU ARE DOING A UNITY/JUMBO BUILD, OR INCLUDING .CPP FILES FROM OTHERS)
+// YOU SHOULD NOT BUILD BOTH IN THE SAME COMPILATION UNIT.
+// BUT IF YOU REALLY WANT TO, you can '#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM' and imgui_impl_opengl3.cpp
+// WILL NOT BE USING OUR LOADER, AND INSTEAD EXPECT ANOTHER/YOUR LOADER TO BE AVAILABLE IN THE COMPILATION UNIT.
 //
 // Regenerate with:
-//   python3 gl3w_gen.py --output ../imgui/backends/imgui_impl_opengl3_loader.h
-//   --ref ../imgui/backends/imgui_impl_opengl3.cpp ./extra_symbols.txt
+//   python3 gl3w_gen.py --output ../imgui/backends/imgui_impl_opengl3_loader.h --ref ../imgui/backends/imgui_impl_opengl3.cpp ./extra_symbols.txt
 //
 // More info:
 //   https://github.com/dearimgui/gl3w_stripped
@@ -96,14 +90,14 @@ typedef unsigned long long khronos_uint64_t;
 extern "C" {
   #endif
   /*
-  ** Copyright 2013-2020 The Khronos Group Inc.
-  ** SPDX-License-Identifier: MIT
-  **
-  ** This header is generated from the Khronos OpenGL / OpenGL ES XML
-  ** API Registry. The current version of the Registry, generator scripts
-  ** used to make the header, and the header can be found at
-  **   https://github.com/KhronosGroup/OpenGL-Registry
-  */
+** Copyright 2013-2020 The Khronos Group Inc.
+** SPDX-License-Identifier: MIT
+**
+** This header is generated from the Khronos OpenGL / OpenGL ES XML
+** API Registry. The current version of the Registry, generator scripts
+** used to make the header, and the header can be found at
+**   https://github.com/KhronosGroup/OpenGL-Registry
+*/
   #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
     #ifndef WIN32_LEAN_AND_MEAN
       #define WIN32_LEAN_AND_MEAN 1
@@ -120,27 +114,27 @@ extern "C" {
     #define GLAPI extern
   #endif
   /* glcorearb.h is for use with OpenGL core profile implementations.
-  ** It should should be placed in the same directory as gl.h and
-  ** included as <GL/glcorearb.h>.
-  **
-  ** glcorearb.h includes only APIs in the latest OpenGL core profile
-  ** implementation together with APIs in newer ARB extensions which
-  ** can be supported by the core profile. It does not, and never will
-  ** include functionality removed from the core profile, such as
-  ** fixed-function vertex and fragment processing.
-  **
-  ** Do not #include both <GL/glcorearb.h> and either of <GL/gl.h> or
-  ** <GL/glext.h> in the same source file.
-  */
+** It should should be placed in the same directory as gl.h and
+** included as <GL/glcorearb.h>.
+**
+** glcorearb.h includes only APIs in the latest OpenGL core profile
+** implementation together with APIs in newer ARB extensions which 
+** can be supported by the core profile. It does not, and never will
+** include functionality removed from the core profile, such as
+** fixed-function vertex and fragment processing.
+**
+** Do not #include both <GL/glcorearb.h> and either of <GL/gl.h> or
+** <GL/glext.h> in the same source file.
+*/
   /* Generated C header for:
-   * API: gl
-   * Profile: core
-   * Versions considered: .*
-   * Versions emitted: .*
-   * Default extensions included: glcore
-   * Additional extensions included: _nomatch_^
-   * Extensions removed: _nomatch_^
-   */
+ * API: gl
+ * Profile: core
+ * Versions considered: .*
+ * Versions emitted: .*
+ * Default extensions included: glcore
+ * Additional extensions included: _nomatch_^
+ * Extensions removed: _nomatch_^
+ */
   #ifndef GL_VERSION_1_0
 typedef void GLvoid;
 typedef unsigned int GLenum;
@@ -776,8 +770,7 @@ static int open_libs (void) {
     close_libgl ();
 
   // Fall back to legacy libGL, which includes GLX
-  // While most systems use libGL.so.1, NetBSD seems to use that libGL.so.3. See
-  // https://github.com/ocornut/imgui/issues/6983
+  // While most systems use libGL.so.1, NetBSD seems to use that libGL.so.3. See https://github.com/ocornut/imgui/issues/6983
   libgl = dlopen ("libGL.so", RTLD_LAZY | RTLD_LOCAL);
   if (!libgl)
     libgl = dlopen ("libGL.so.1", RTLD_LAZY | RTLD_LOCAL);
@@ -839,8 +832,7 @@ static int parse_version (void) {
   glGetIntegerv (GL_MAJOR_VERSION, &version.major);
   glGetIntegerv (GL_MINOR_VERSION, &version.minor);
   if (version.major == 0 && version.minor == 0) {
-    // Query GL_VERSION in desktop GL 2.x, the string will start with
-    // "<major>.<minor>"
+    // Query GL_VERSION in desktop GL 2.x, the string will start with "<major>.<minor>"
     if (const char* gl_version = (const char*)glGetString (GL_VERSION))
       sscanf (gl_version, "%d.%d", &version.major, &version.minor);
   }

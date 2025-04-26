@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-# MIT License
-# Copyright (c) 2024-2025 Tomáš Mark
+# MIT License Copyright (c) 2024-2025 Tomáš Mark
 
-#+-+-+-+-+-+-+-+-+-+-+
-#|s|t|a|n|d|a|l|o|n|e|
-#+-+-+-+-+-+-+-+-+-+-+
+# +-+-+-+-+-+-+-+-+-+-+
+# |s|t|a|n|d|a|l|o|n|e|
+# +-+-+-+-+-+-+-+-+-+-+
 
 cmake_policy(SET CMP0048 NEW) # project() command manages VERSION variables
 cmake_policy(SET CMP0076 NEW) # target_sources() command creates usage requirements
@@ -100,9 +99,18 @@ apply_hardening(${STANDALONE_NAME})
 apply_sanitizers(${STANDALONE_NAME})
 
 # ==============================================================================
-# Set compile properties
+# Set target properties
 # ==============================================================================
-set_target_properties(${STANDALONE_NAME} PROPERTIES OUTPUT_NAME "${STANDALONE_NAME}")
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    message(STATUS "Emscripten detected")
+    set_target_properties(${STANDALONE_NAME} PROPERTIES SUFFIX ".html")
+    set_target_properties(
+        ${STANDALONE_NAME} PROPERTIES COMPILE_FLAGS
+                                      "-Os -pthread -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=4")
+    set_target_properties(
+        ${STANDALONE_NAME}
+        PROPERTIES LINK_FLAGS "-Os -s WASM=1 -pthread -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=4")
+endif()
 
 # ==============================================================================
 # Set linking
